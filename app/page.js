@@ -1,4 +1,4 @@
-"use client"; // React Client Component
+"use client";
 
 import { useState } from "react";
 import { sendMessage } from "./api";
@@ -10,14 +10,12 @@ export default function Home() {
   const handleSend = async () => {
     if (!input.trim()) return;
 
-    // Kullanıcının mesajını ekle
     setMessages([...messages, { text: input, sender: "user" }]);
 
-    // API'ye mesaj gönder
     const response = await sendMessage(input);
     setMessages([...messages, { text: input, sender: "user" }, { text: response, sender: "bot" }]);
 
-    setInput(""); // Input'u temizle
+    setInput("");
   };
 
   return (
